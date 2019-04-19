@@ -24,12 +24,12 @@ formula_list(sos).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 1.  Tourists are older or younger and alone or with family -- Daniel
+% 1.  Tourists are older or younger and alone or with family
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  WithFamily(x) = x is traveling with his/her family
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-all x ( ( Older(x) | Younger(x) ) & ( Alone(x) | WithFamily(x) ) )
+all x ((Older(x) | Younger(x)) & (Alone(x) | WithFamily(x)))
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,7 +51,13 @@ all x (WithChildren(x) -> Married(x)).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 3.  Younger tourists have little money but can stay out late & do zany things
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  LittleMoney(x)    == x has little money
+%  CanStayOutLate(x) == x can stay out late
+%  DoZanyThings(x)   == x can do zany things
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+all x Younger(x) -> LittleMoney(x)
+all x Younger(x) -> CanStayOutLate(x) & DoZanyThings(x)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
